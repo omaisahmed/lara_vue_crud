@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 class="text-center">Create Product</h3>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6">
                 <form @submit.prevent="addProduct">
                     <div class="form-group">
@@ -12,7 +12,7 @@
                         <label>Detail</label>
                         <input type="text" class="form-control" v-model="product.detail">
                     </div>
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary my-3">Create</button>
                 </form>
             </div>
         </div>

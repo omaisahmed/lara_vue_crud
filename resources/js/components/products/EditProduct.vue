@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 class="text-center">Edit Product</h3>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6">
                 <form @submit.prevent="updateProduct">
                     <div class="form-group">
@@ -12,7 +12,7 @@
                         <label>Detail</label>
                         <input type="text" class="form-control" v-model="product.detail">
                     </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary my-3">Update</button>
                 </form>
             </div>
         </div>
@@ -28,7 +28,7 @@ export default {
     },
     created() {
         this.axios
-            .get(`http://localhost:8000/api/products/${this.$route.params.id}`)
+            .get(`/api/products/${this.$route.params.id}`)
             .then((res) => {
                 this.product = res.data;
             });
@@ -36,9 +36,9 @@ export default {
     methods: {
         updateProduct() {
             this.axios
-                .patch(`http://localhost:8000/api/products/${this.$route.params.id}`, this.product)
+                .patch(`/api/products/${this.$route.params.id}`, this.product)
                 .then((res) => {
-                    this.$router.push({ name: 'home' });
+                    this.$router.push({ name: 'products' });
                 });
         }
     }
